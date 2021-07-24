@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class Spawner : MonoBehaviour
 {
@@ -11,16 +13,30 @@ public class Spawner : MonoBehaviour
     public float destroyX = 1f;
     public float spawnStartTime = 1f;
     public float spawnRate = 1f;
+    public bool changePatternActive = false;
+    public float minChangePatternTime = 5f;
+    public float maxChangePatternTime = 10f;
+    //x - spawnRate, y - moveSpeed
+    public List<Vector2> patterns;
 
     [SerializeField] private GameObject _projectile = null;
     [SerializeField] private Arsenal _arsenal = null;
     private GameObject _projectileInstance = null;
     private Projectile _projectileInstanceScript = null;
     private bool touchedByPlayer = false;
+    private float timer;
+    private float patternTimer;
+    private float changePatternTime;
 
     private void Start()
     {
-        if(enemy || automatic)
+        if (enemy && changePatternActive) 
+        {
+            changePatternTime = Random.Range(minChangePatternTime, maxChangePatternTime);
+            Debug.Log("next pattern in: " + changePatternTime);
+        }
+
+        if (automatic)
         {
             InvokeRepeating("Launch", spawnStartTime, spawnRate);
         }
@@ -28,10 +44,47 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
+        if (enemy && changePatternActive)
+        {
+            patternTimer += Time.deltaTime;
+
+            if (patternTimer >= changePatternTime)
+            {
+                patternTimer -= changePatternTime;
+
+                changePatternTime = Random.Range(minChangePatternTime, maxChangePatternTime);
+                Debug.Log("next pattern in: "+changePatternTime);
+                ChangePattern();
+            }
+        }
+
         if (!enemy && !automatic)
         {
             ProcessInput();
         }
+
+        if (enemy)
+        {
+            timer += Time.deltaTime;
+
+            if (timer >= spawnRate)
+            {
+                timer -= spawnRate;
+                Invoke("Launch", 0f);
+            }
+        }
+    }
+
+    private void ChangePattern()
+    {
+        int patternIndex = Random.Range(0, patterns.Count);
+
+        Vector2 pattern = patterns[patternIndex];
+
+        spawnRate = pattern.x;
+        moveSpeed = pattern.y;
+
+        Debug.Log("new pattern: " + spawnRate + ", " + moveSpeed);
     }
 
     private void ProcessInput()
