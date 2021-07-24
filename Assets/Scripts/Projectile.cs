@@ -6,7 +6,13 @@ public class Projectile : MonoBehaviour
     public float rotationSpeed = 1f;
     public bool rotateClockWise = true;
     public float destroyY = 1f;
+    public float scale = 1f;
     public Rigidbody2D rb;
+
+    private void Start()
+    {
+        transform.localScale = new Vector2(scale, scale);
+    }
 
     private void FixedUpdate()
     {
