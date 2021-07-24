@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
@@ -13,6 +12,12 @@ public class Player : MonoBehaviour
     [SerializeField] private Text _text = null;
     private Vector2 _moveDirection;
     private bool _inputLocked = false;
+
+    private void Start()
+    {
+        _text.color = Color.cyan;
+        _text.text = "";
+    }
 
     private void Update()
     {
@@ -52,8 +57,6 @@ public class Player : MonoBehaviour
             {
                 StartCoroutine("Stun");
             }
-            _text.color = Color.red;
-            _text.text = "Тебе пиздец";
         }
     }
 
@@ -62,10 +65,16 @@ public class Player : MonoBehaviour
         _inputLocked = true;
         stunned = true;
         _renderer.color = new Color(_renderer.color.r, _renderer.color.g, _renderer.color.b, 0.5f);
+        _text.color = Color.yellow;
+        _text.text = "Оглушен";
         yield return new WaitForSeconds(2f);
         _inputLocked = false;
+        _text.color = Color.cyan;
+        _text.text = "Неуязвим";
         yield return new WaitForSeconds(1f);
         stunned = false;
         _renderer.color = new Color(_renderer.color.r, _renderer.color.g, _renderer.color.b, 1f);
+        _text.color = Color.cyan;
+        _text.text = "";
     }
 }

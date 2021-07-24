@@ -2,15 +2,17 @@
 
 public class Projectile : MonoBehaviour
 {
-    public float speed = 1f;
-    public float rotationRate;
-    public bool rotationDirection;
+    public float moveSpeed = 1f;
+    public float rotationSpeed = 1f;
+    public bool rotateClockWise = true;
+    public float destroyY = 1f;
     public Rigidbody2D rb;
 
     private void FixedUpdate()
     {
         Move();
-        if (transform.position.y < -7.5f)
+        Rotate();
+        if (transform.position.y < destroyY)
         {
             Destroy(gameObject);
         }
@@ -18,6 +20,18 @@ public class Projectile : MonoBehaviour
 
     private void Move() 
     {
-        rb.velocity = new Vector2(0f, -1f * speed);
+        rb.velocity = new Vector2(0f, -1f * moveSpeed);
+    }
+
+    private void Rotate()
+    {
+        if (rotateClockWise)
+        {
+            rb.rotation -= rotationSpeed;
+        }
+        else
+        {
+            rb.rotation += rotationSpeed;
+        }
     }
 }
