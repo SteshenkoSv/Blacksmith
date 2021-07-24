@@ -3,6 +3,7 @@
 public class Spawner : MonoBehaviour
 {
     public bool enemy = false;
+    public bool automatic = false;
     public float scale = 1f;
     public float moveSpeed = 1f;
     public float rotationSpeed = 1f;
@@ -12,13 +13,14 @@ public class Spawner : MonoBehaviour
     public float spawnRate = 1f;
 
     [SerializeField] private GameObject _projectile = null;
+    [SerializeField] private Arsenal _arsenal = null;
     private GameObject _projectileInstance = null;
     private Projectile _projectileInstanceScript = null;
     private bool touchedByPlayer = false;
 
     private void Start()
     {
-        if(enemy)
+        if(enemy || automatic)
         {
             InvokeRepeating("Launch", spawnStartTime, spawnRate);
         }
@@ -26,7 +28,7 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
-        if (!enemy)
+        if (!enemy && !automatic)
         {
             ProcessInput();
         }
@@ -34,7 +36,7 @@ public class Spawner : MonoBehaviour
 
     private void ProcessInput()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && touchedByPlayer && !enemy)
+        if (Input.GetKeyDown(KeyCode.Space) && touchedByPlayer && !(enemy || automatic))
         {
             Launch();
         }
@@ -65,5 +67,11 @@ public class Spawner : MonoBehaviour
         _projectileInstanceScript.rotateClockWise = rotateClockWise;
         _projectileInstanceScript.destroyX = destroyX;
         _projectileInstanceScript.enemy = enemy;
+
+        if (!enemy)
+        {
+            _arsenal.weaponCount -= 1;
+            _arsenal.UpdateArsenalValues();
+        }
     }
 }
