@@ -26,7 +26,7 @@ public class Projectile : MonoBehaviour
 
     private void Move() 
     {
-        rb.velocity = new Vector2(0f, -1f * moveSpeed);
+        rb.velocity = new Vector2(0f, moveSpeed);
     }
 
     private void Rotate()
