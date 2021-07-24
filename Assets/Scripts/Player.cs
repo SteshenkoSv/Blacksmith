@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public float moveSpeed = 1f;
-    [SerializeField] private SpriteRenderer _renderer = null;
     [SerializeField] private Rigidbody2D _rb = null;
     private Vector2 _moveDirection;
     private bool _inputLocked = false;
