@@ -224,6 +224,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawner2
       objectReference: {fileID: 0}
+    - target: {fileID: 3231709427876697342, guid: 6d6495efe0e73f540b9cfa412db0c695,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8853518216267931687, guid: 6d6495efe0e73f540b9cfa412db0c695,
         type: 3}
       propertyPath: m_Enabled
@@ -333,6 +338,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Spawner6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3231709427876697342, guid: 6d6495efe0e73f540b9cfa412db0c695,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8853518216267931687, guid: 6d6495efe0e73f540b9cfa412db0c695,
         type: 3}
@@ -454,6 +464,11 @@ PrefabInstance:
     - target: {fileID: 3231709427876697340, guid: 6d6495efe0e73f540b9cfa412db0c695,
         type: 3}
       propertyPath: rotationSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3231709427876697340, guid: 6d6495efe0e73f540b9cfa412db0c695,
+        type: 3}
+      propertyPath: patterns.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3231709427876697341, guid: 6d6495efe0e73f540b9cfa412db0c695,
@@ -581,6 +596,36 @@ PrefabInstance:
         type: 3}
       propertyPath: rotationSpeed
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3231709427876697340, guid: 6d6495efe0e73f540b9cfa412db0c695,
+        type: 3}
+      propertyPath: changePatternActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3231709427876697340, guid: 6d6495efe0e73f540b9cfa412db0c695,
+        type: 3}
+      propertyPath: patterns.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3231709427876697340, guid: 6d6495efe0e73f540b9cfa412db0c695,
+        type: 3}
+      propertyPath: patterns.Array.data[0].x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3231709427876697340, guid: 6d6495efe0e73f540b9cfa412db0c695,
+        type: 3}
+      propertyPath: patterns.Array.data[0].y
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3231709427876697340, guid: 6d6495efe0e73f540b9cfa412db0c695,
+        type: 3}
+      propertyPath: patterns.Array.data[1].x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3231709427876697340, guid: 6d6495efe0e73f540b9cfa412db0c695,
+        type: 3}
+      propertyPath: patterns.Array.data[1].y
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3231709427876697341, guid: 6d6495efe0e73f540b9cfa412db0c695,
         type: 3}
@@ -976,6 +1021,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawner5
       objectReference: {fileID: 0}
+    - target: {fileID: 3231709427876697342, guid: 6d6495efe0e73f540b9cfa412db0c695,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8853518216267931687, guid: 6d6495efe0e73f540b9cfa412db0c695,
         type: 3}
       propertyPath: m_Enabled
@@ -1085,6 +1135,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Spawner3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3231709427876697342, guid: 6d6495efe0e73f540b9cfa412db0c695,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8853518216267931687, guid: 6d6495efe0e73f540b9cfa412db0c695,
         type: 3}
@@ -4110,6 +4165,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawner4
       objectReference: {fileID: 0}
+    - target: {fileID: 3231709427876697342, guid: 6d6495efe0e73f540b9cfa412db0c695,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8853518216267931687, guid: 6d6495efe0e73f540b9cfa412db0c695,
         type: 3}
       propertyPath: m_Enabled
@@ -4610,7 +4670,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1635268456}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.65, y: 6.01, z: 0}
+  m_LocalPosition: {x: -12.1, y: 6.01, z: 0}
   m_LocalScale: {x: 11, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1770572423}

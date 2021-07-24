@@ -20,11 +20,8 @@ public class Projectile : MonoBehaviour
     {
         Move();
         Rotate();
-        if (enemy && transform.position.x < destroyX)
-        {
-            Destroy(gameObject);
-        }
-        else if (!enemy && transform.position.x > destroyX)
+
+        if (!enemy && transform.position.x > destroyX)
         {
             Destroy(gameObject);
         }
