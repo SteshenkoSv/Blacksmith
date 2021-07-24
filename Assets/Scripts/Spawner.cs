@@ -1,27 +1,26 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private GameObject _projectile = null;
-    [SerializeField] private Text _text = null;
-    private GameObject _projectileInstance = null;
+    public float moveSpeed = 1f;
+    public float rotationSpeed = 1f;
+    public bool rotateClockWise = true;
+    public float destroyY = 1f;
 
+    [SerializeField] private GameObject _projectile = null;
+    private GameObject _projectileInstance = null;
+    private Projectile _projectileInstanceScript = null;
 
     private void Update()
     {
         if (_projectileInstance == null) 
         {
             _projectileInstance = Instantiate(_projectile, transform);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            _text.color = Color.green;
-            _text.text = "Кузнецу пиздец";
+            _projectileInstanceScript = _projectileInstance.GetComponent<Projectile>();
+            _projectileInstanceScript.moveSpeed = moveSpeed;
+            _projectileInstanceScript.rotationSpeed = rotationSpeed;
+            _projectileInstanceScript.rotateClockWise = rotateClockWise;
+            _projectileInstanceScript.destroyY = destroyY;
         }
     }
 }
