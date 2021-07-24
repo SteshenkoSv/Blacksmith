@@ -2,34 +2,41 @@
 
 public class Spawner : MonoBehaviour
 {
+    public bool enemy = false;
     public float scale = 1f;
     public float moveSpeed = 1f;
     public float rotationSpeed = 1f;
     public bool rotateClockWise = true;
-    public float destroyY = 1f;
+    public float destroyX = 1f;
+    public float spawnStartTime = 1f;
+    public float spawnRate = 1f;
 
     [SerializeField] private GameObject _projectile = null;
     private GameObject _projectileInstance = null;
     private Projectile _projectileInstanceScript = null;
     private bool touchedByPlayer = false;
 
+    private void Start()
+    {
+        if(enemy)
+        {
+            InvokeRepeating("Launch", spawnStartTime, spawnRate);
+        }
+    }
+
     private void Update()
     {
-        ProcessInput();
-        Debug.Log(touchedByPlayer);
+        if (!enemy)
+        {
+            ProcessInput();
+        }
     }
 
     private void ProcessInput()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && touchedByPlayer)
+        if (Input.GetKeyDown(KeyCode.Space) && touchedByPlayer && !enemy)
         {
-            _projectileInstance = Instantiate(_projectile, transform);
-            _projectileInstanceScript = _projectileInstance.GetComponent<Projectile>();
-            _projectileInstanceScript.scale = scale;
-            _projectileInstanceScript.moveSpeed = moveSpeed;
-            _projectileInstanceScript.rotationSpeed = rotationSpeed;
-            _projectileInstanceScript.rotateClockWise = rotateClockWise;
-            _projectileInstanceScript.destroyY = destroyY;
+            Launch();
         }
     }
 
@@ -46,5 +53,17 @@ public class Spawner : MonoBehaviour
         {
             touchedByPlayer = false;
         }
+    }
+
+    private void Launch() 
+    {
+        _projectileInstance = Instantiate(_projectile, transform);
+        _projectileInstanceScript = _projectileInstance.GetComponent<Projectile>();
+        _projectileInstanceScript.scale = scale;
+        _projectileInstanceScript.moveSpeed = moveSpeed;
+        _projectileInstanceScript.rotationSpeed = rotationSpeed;
+        _projectileInstanceScript.rotateClockWise = rotateClockWise;
+        _projectileInstanceScript.destroyX = destroyX;
+        _projectileInstanceScript.enemy = enemy;
     }
 }
