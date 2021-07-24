@@ -50,6 +50,7 @@ public class Projectile : MonoBehaviour
         {
             if (collision.gameObject.layer == 8)
             {
+                Destroy(collision.gameObject);
                 Destroy(gameObject);
             }
             else if (collision.gameObject.layer == 10)

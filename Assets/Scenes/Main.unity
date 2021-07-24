@@ -155,6 +155,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3231709427876697340, guid: 6d6495efe0e73f540b9cfa412db0c695,
         type: 3}
+      propertyPath: spawnRate
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3231709427876697340, guid: 6d6495efe0e73f540b9cfa412db0c695,
+        type: 3}
       propertyPath: _projectile
       value: 
       objectReference: {fileID: 638620833217229023, guid: 02727b04c02b7184d95dca8a6da67d18,
@@ -163,6 +168,11 @@ PrefabInstance:
         type: 3}
       propertyPath: rotationSpeed
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3231709427876697340, guid: 6d6495efe0e73f540b9cfa412db0c695,
+        type: 3}
+      propertyPath: spawnStartTime
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3231709427876697341, guid: 6d6495efe0e73f540b9cfa412db0c695,
         type: 3}
@@ -266,7 +276,12 @@ PrefabInstance:
     - target: {fileID: 3231709427876697340, guid: 6d6495efe0e73f540b9cfa412db0c695,
         type: 3}
       propertyPath: moveSpeed
-      value: -5
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3231709427876697340, guid: 6d6495efe0e73f540b9cfa412db0c695,
+        type: 3}
+      propertyPath: spawnRate
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3231709427876697340, guid: 6d6495efe0e73f540b9cfa412db0c695,
         type: 3}
@@ -278,6 +293,11 @@ PrefabInstance:
         type: 3}
       propertyPath: rotationSpeed
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3231709427876697340, guid: 6d6495efe0e73f540b9cfa412db0c695,
+        type: 3}
+      propertyPath: spawnStartTime
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3231709427876697341, guid: 6d6495efe0e73f540b9cfa412db0c695,
         type: 3}
@@ -469,7 +489,7 @@ PrefabInstance:
     - target: {fileID: 3231709427876697340, guid: 6d6495efe0e73f540b9cfa412db0c695,
         type: 3}
       propertyPath: patterns.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3231709427876697341, guid: 6d6495efe0e73f540b9cfa412db0c695,
         type: 3}
@@ -584,7 +604,7 @@ PrefabInstance:
     - target: {fileID: 3231709427876697340, guid: 6d6495efe0e73f540b9cfa412db0c695,
         type: 3}
       propertyPath: spawnRate
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3231709427876697340, guid: 6d6495efe0e73f540b9cfa412db0c695,
         type: 3}
@@ -605,12 +625,12 @@ PrefabInstance:
     - target: {fileID: 3231709427876697340, guid: 6d6495efe0e73f540b9cfa412db0c695,
         type: 3}
       propertyPath: patterns.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3231709427876697340, guid: 6d6495efe0e73f540b9cfa412db0c695,
         type: 3}
       propertyPath: patterns.Array.data[0].x
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3231709427876697340, guid: 6d6495efe0e73f540b9cfa412db0c695,
         type: 3}
@@ -952,6 +972,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3231709427876697340, guid: 6d6495efe0e73f540b9cfa412db0c695,
         type: 3}
+      propertyPath: spawnRate
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3231709427876697340, guid: 6d6495efe0e73f540b9cfa412db0c695,
+        type: 3}
       propertyPath: _projectile
       value: 
       objectReference: {fileID: 638620833217229023, guid: 02727b04c02b7184d95dca8a6da67d18,
@@ -960,6 +985,11 @@ PrefabInstance:
         type: 3}
       propertyPath: rotationSpeed
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3231709427876697340, guid: 6d6495efe0e73f540b9cfa412db0c695,
+        type: 3}
+      propertyPath: spawnStartTime
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3231709427876697341, guid: 6d6495efe0e73f540b9cfa412db0c695,
         type: 3}
@@ -1067,6 +1097,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3231709427876697340, guid: 6d6495efe0e73f540b9cfa412db0c695,
         type: 3}
+      propertyPath: spawnRate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3231709427876697340, guid: 6d6495efe0e73f540b9cfa412db0c695,
+        type: 3}
       propertyPath: _projectile
       value: 
       objectReference: {fileID: 638620833217229023, guid: 02727b04c02b7184d95dca8a6da67d18,
@@ -1075,6 +1110,11 @@ PrefabInstance:
         type: 3}
       propertyPath: rotationSpeed
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3231709427876697340, guid: 6d6495efe0e73f540b9cfa412db0c695,
+        type: 3}
+      propertyPath: spawnStartTime
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3231709427876697341, guid: 6d6495efe0e73f540b9cfa412db0c695,
         type: 3}
@@ -4092,7 +4132,7 @@ PrefabInstance:
     - target: {fileID: 3231709427876697340, guid: 6d6495efe0e73f540b9cfa412db0c695,
         type: 3}
       propertyPath: spawnRate
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3231709427876697340, guid: 6d6495efe0e73f540b9cfa412db0c695,
         type: 3}
@@ -4104,6 +4144,11 @@ PrefabInstance:
         type: 3}
       propertyPath: rotationSpeed
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3231709427876697340, guid: 6d6495efe0e73f540b9cfa412db0c695,
+        type: 3}
+      propertyPath: spawnStartTime
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3231709427876697341, guid: 6d6495efe0e73f540b9cfa412db0c695,
         type: 3}
