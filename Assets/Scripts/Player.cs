@@ -66,11 +66,11 @@ public class Player : MonoBehaviour
         stunned = true;
         _renderer.color = new Color(_renderer.color.r, _renderer.color.g, _renderer.color.b, 0.5f);
         _text.color = Color.yellow;
-        _text.text = "Оглушен";
+        _text.text = "Stunned";
         yield return new WaitForSeconds(2f);
         _inputLocked = false;
         _text.color = Color.cyan;
-        _text.text = "Неуязвим";
+        _text.text = "Invulnerable";
         yield return new WaitForSeconds(1f);
         stunned = false;
         _renderer.color = new Color(_renderer.color.r, _renderer.color.g, _renderer.color.b, 1f);

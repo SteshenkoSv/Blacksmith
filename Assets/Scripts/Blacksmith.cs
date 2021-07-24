@@ -17,7 +17,7 @@ public class Blacksmith : MonoBehaviour
     private IEnumerator Killed()
     {
         _text.color = Color.green;
-        _text.text = "Кузнецу пиздец";
+        _text.text = "Blacksmith eats ass";
         yield return new WaitForSeconds(1f);
         _text.text = "";
     }

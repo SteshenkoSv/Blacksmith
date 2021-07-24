@@ -11,7 +11,7 @@ public class Projectile : MonoBehaviour
 
     private void Start()
     {
-        transform.localScale = new Vector2(scale, scale);
+        transform.localScale = new Vector3(scale, scale);
     }
 
     private void FixedUpdate()
