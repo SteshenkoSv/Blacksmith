@@ -45,11 +45,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49e016387e20c4642a8e54233dac60b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: 0
   scale: 1
   moveSpeed: 1
   rotationSpeed: 1
   rotateClockWise: 0
   destroyY: 0
+  spawnStartTime: 1
+  spawnRate: 1
   _projectile: {fileID: 638620833217229023, guid: e81992e3423b8834b948d3186ea0f388,
     type: 3}
 --- !u!212 &8853518216267931687
