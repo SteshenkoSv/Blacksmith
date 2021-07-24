@@ -11,6 +11,11 @@ public class Arsenal : MonoBehaviour
 
     private float timer;
 
+    private void Start()
+    {
+        UpdateArsenalValues();
+    }
+
     private void Update()
     {
         timer += Time.deltaTime;
@@ -18,7 +23,7 @@ public class Arsenal : MonoBehaviour
         {
             timer -= 1f;
             time += 1;
-            weaponCount += time;
+            weaponCount += 3;
             UpdateArsenalValues();
         }
     }

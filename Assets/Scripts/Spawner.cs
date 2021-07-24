@@ -24,13 +24,15 @@ public class Spawner : MonoBehaviour
     private GameObject _projectileInstance = null;
     private Projectile _projectileInstanceScript = null;
     private bool touchedByPlayer = false;
-    private float timer;
+    private bool spawned = false;
+    private float respawnTimer;
+    private float startTimer;
     private float patternTimer;
     private float changePatternTime;
 
     private void Start()
     {
-        if (enemy && changePatternActive) 
+        if (enemy && changePatternActive && patterns.Count > 0) 
         {
             changePatternTime = Random.Range(minChangePatternTime, maxChangePatternTime);
             Debug.Log("next pattern in: " + changePatternTime);
@@ -44,7 +46,7 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
-        if (enemy && changePatternActive)
+        if (enemy && changePatternActive && patterns.Count > 0)
         {
             patternTimer += Time.deltaTime;
 
@@ -65,13 +67,25 @@ public class Spawner : MonoBehaviour
 
         if (enemy)
         {
-            timer += Time.deltaTime;
+            startTimer += Time.deltaTime;
 
-            if (timer >= spawnRate)
+            if (startTimer >= spawnStartTime && !spawned)
             {
-                timer -= spawnRate;
                 Invoke("Launch", 0f);
+                spawned = true;
             }
+
+            if (spawned) 
+            {
+                respawnTimer += Time.deltaTime;
+
+                if (respawnTimer >= spawnRate)
+                {
+                    respawnTimer -= spawnRate;
+                    Invoke("Launch", 0f);
+                }
+            }
+
         }
     }
 
@@ -89,7 +103,7 @@ public class Spawner : MonoBehaviour
 
     private void ProcessInput()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && touchedByPlayer && !(enemy || automatic))
+        if (Input.GetKeyDown(KeyCode.Space) && touchedByPlayer && !(enemy || automatic) && _arsenal.weaponCount > 0)
         {
             Launch();
         }
