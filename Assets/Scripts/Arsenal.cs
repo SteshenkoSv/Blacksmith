@@ -33,7 +33,7 @@ public class Arsenal : MonoBehaviour
             timeText.text = time.ToString();
         }
 
-        if (time >= 60 && wall.hp > 0) 
+        if (time >= 61 && wall.hp > 0) 
         {
             SceneManager.LoadScene("WinScreen");
         }
