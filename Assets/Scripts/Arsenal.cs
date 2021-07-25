@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Arsenal : MonoBehaviour
 {
     [SerializeField] private Text weaponText;
     [SerializeField] private Text timeText;
+    [SerializeField] private Wall wall;
 
     public int weaponCount = 0;
     public int weaponGiveawayRate = 1;
@@ -29,6 +31,11 @@ public class Arsenal : MonoBehaviour
             timer -= 1f;
             time += 1;
             timeText.text = time.ToString();
+        }
+
+        if (time >= 60 && wall.hp > 0) 
+        {
+            SceneManager.LoadScene("WinScreen");
         }
 
         weaponTimer += Time.deltaTime;

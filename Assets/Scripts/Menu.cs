@@ -21,6 +21,10 @@ public class Menu : MonoBehaviour
         infoPanel.SetActive(false);
         mainPanel.SetActive(true);
     }
+    public void ToMenuButtonClick()
+    {
+        SceneManager.LoadScene("Menu");
+    }
 
     public void ExitButtonClick()
     {
