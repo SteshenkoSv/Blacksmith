@@ -63,7 +63,7 @@ public class Player : MonoBehaviour
     {
         if (sound == "Step")
         {
-            audioSource.volume = 0.08f;
+            audioSource.volume = 0.06f;
             audioSource.PlayOneShot(clips[Random.Range(0, 3)]);
         }
     }
