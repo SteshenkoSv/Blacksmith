@@ -46,15 +46,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: 0
+  automatic: 0
   scale: 1
   moveSpeed: 1
   rotationSpeed: 1
   rotateClockWise: 0
-  destroyY: 0
+  destroyX: 1
   spawnStartTime: 1
   spawnRate: 1
+  changePatternActive: 0
+  minChangePatternTime: 5
+  maxChangePatternTime: 10
+  patterns: []
   _projectile: {fileID: 638620833217229023, guid: e81992e3423b8834b948d3186ea0f388,
     type: 3}
+  _arsenal: {fileID: 0}
+  clips:
+  - {fileID: 8300000, guid: 917a7737fe206ec4393b6ca50bce75b8, type: 3}
+  - {fileID: 8300000, guid: 9ca9ce75f6858bd4daa70e5630834277, type: 3}
 --- !u!212 &8853518216267931687
 SpriteRenderer:
   m_ObjectHideFlags: 0

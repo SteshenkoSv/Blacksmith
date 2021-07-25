@@ -30,6 +30,10 @@ public class Spawner : MonoBehaviour
     private float patternTimer;
     private float changePatternTime;
 
+    public AudioClip[] clips;
+    private AudioSource audioSource;
+
+
     private void Start()
     {
         if (enemy && changePatternActive && patterns.Count > 0) 
@@ -42,6 +46,8 @@ public class Spawner : MonoBehaviour
         {
             InvokeRepeating("Launch", spawnStartTime, spawnRate);
         }
+
+        audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     private void Update()
@@ -106,6 +112,7 @@ public class Spawner : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && touchedByPlayer && !(enemy || automatic) && _arsenal.weaponCount > 0)
         {
             Launch();
+            PlayAudio("Throw");
         }
     }
 
@@ -139,6 +146,15 @@ public class Spawner : MonoBehaviour
         {
             _arsenal.weaponCount -= 1;
             _arsenal.UpdateArsenalValues();
+        }
+    }
+
+    private void PlayAudio(string sound)
+    {
+        if (sound == "Throw")
+        {
+            audioSource.volume = 0.3f;
+            audioSource.PlayOneShot(clips[Random.Range(0, 2)]);
         }
     }
 }

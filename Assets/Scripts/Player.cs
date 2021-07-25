@@ -7,7 +7,14 @@ public class Player : MonoBehaviour
     private Vector2 _moveDirection;
     private bool _inputLocked = false;
 
-    private float distanceWalked = 0;
+    public AudioClip[] clips;
+    private float timeRemaining = 0.4f;
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = gameObject.AddComponent<AudioSource>();
+    }
 
     private void Update()
     {
@@ -38,22 +45,27 @@ public class Player : MonoBehaviour
     {
         _rb.velocity = new Vector2(_moveDirection.x * moveSpeed, _moveDirection.y * moveSpeed);
 
-        if (distanceWalked <= 5)
+        if (_moveDirection.x != 0 || _moveDirection.y != 0)
         {
-            PlayAudio("Step");
-            distanceWalked = 0;
-        }
-        else
-        {
-            distanceWalked += Mathf.Abs(_rb.velocity.magnitude - distanceWalked);
-        }
+            if (timeRemaining > 0)
+            {
+                timeRemaining -= Time.deltaTime;
+            }
+            else
+            {
+                PlayAudio("Step");
+                timeRemaining = 0.4f;
+            }
+        } 
     }
 
     private void PlayAudio(string sound)
     {
         if (sound == "Step")
         {
-
+            audioSource.volume = 0.3f;
+            audioSource.PlayOneShot(clips[Random.Range(0, 3)]);
+            Debug.Log("" + Random.Range(0, 3));
         }
     }
 }
