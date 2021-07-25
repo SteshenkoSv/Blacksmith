@@ -146,7 +146,7 @@ public class Spawner : MonoBehaviour
     {
         if (sound == "Throw")
         {
-            audioSource.volume = 0.3f;
+            audioSource.volume = 0.2f;
             audioSource.PlayOneShot(clips[Random.Range(0, 2)]);
         }
     }
