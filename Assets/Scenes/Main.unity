@@ -1326,6 +1326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponText: {fileID: 753489089}
   timeText: {fileID: 1894209818}
+  wall: {fileID: 1809335139}
   weaponCount: 0
   weaponGiveawayRate: 1
   weaponGiveawayCount: 1
