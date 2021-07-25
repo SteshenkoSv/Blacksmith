@@ -105,6 +105,14 @@ MonoBehaviour:
   scale: 1
   rb: {fileID: 9174896463783650631}
   enemy: 0
+  clips:
+  - {fileID: 8300000, guid: 511a7715744322e428d1a2114436b14c, type: 3}
+  - {fileID: 8300000, guid: 082d3fb314483f746a878063ee571b1a, type: 3}
+  - {fileID: 8300000, guid: 5b44cdb0b7bd3304e81e79aaad8fb81c, type: 3}
+  clipsWall:
+  - {fileID: 8300000, guid: ebeebff6e9064f843a5af1d6200f2d62, type: 3}
+  - {fileID: 8300000, guid: de7b25c8c4499e24aae7e6c805cce335, type: 3}
+  - {fileID: 8300000, guid: feae56c8fbe0fe64faf5b1cdc1f0e48f, type: 3}
 --- !u!61 &3762222203707048365
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -170,3 +178,4 @@ MonoBehaviour:
   - {fileID: 6891357095817125983, guid: 0f421b5c48d5a0d48afa76d124598832, type: 3}
   _renderer: {fileID: 638620833217229021}
   framerate: 1
+  clips: []

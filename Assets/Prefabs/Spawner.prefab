@@ -61,6 +61,9 @@ MonoBehaviour:
   _projectile: {fileID: 638620833217229023, guid: e81992e3423b8834b948d3186ea0f388,
     type: 3}
   _arsenal: {fileID: 0}
+  clips:
+  - {fileID: 8300000, guid: 917a7737fe206ec4393b6ca50bce75b8, type: 3}
+  - {fileID: 8300000, guid: 9ca9ce75f6858bd4daa70e5630834277, type: 3}
 --- !u!212 &8853518216267931687
 SpriteRenderer:
   m_ObjectHideFlags: 0

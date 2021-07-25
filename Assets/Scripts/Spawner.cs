@@ -31,6 +31,10 @@ public class Spawner : MonoBehaviour
     private int nextPatternIndex = 1;
     private int currentPatternIndex = 0;
 
+    public AudioClip[] clips;
+    private AudioSource audioSource;
+
+
     private void Start()
     {
         if (enemy)
@@ -44,6 +48,8 @@ public class Spawner : MonoBehaviour
         {
             InvokeRepeating("Launch", spawnStartTime, spawnRate);
         }
+
+        audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     private void Update()
@@ -110,6 +116,7 @@ public class Spawner : MonoBehaviour
         {
             _arsenal.UseWeapon(1);
             Launch();
+            PlayAudio("Throw");
         }
     }
 
@@ -138,5 +145,14 @@ public class Spawner : MonoBehaviour
         _projectileInstanceScript.rotateClockWise = rotateClockWise;
         _projectileInstanceScript.destroyX = destroyX;
         _projectileInstanceScript.enemy = enemy;
+    }
+
+    private void PlayAudio(string sound)
+    {
+        if (sound == "Throw")
+        {
+            audioSource.volume = 0.3f;
+            audioSource.PlayOneShot(clips[Random.Range(0, 2)]);
+        }
     }
 }
