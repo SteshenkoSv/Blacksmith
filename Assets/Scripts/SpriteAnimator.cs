@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class SpriteAnimator : MonoBehaviour
 {
+
     [SerializeField] private Sprite[] _frameArray;
     [SerializeField] private SpriteRenderer _renderer;
     private int currentFrame;
@@ -11,6 +14,7 @@ public class SpriteAnimator : MonoBehaviour
 
     private AudioSource audioSource;
     public AudioClip[] clips;
+    public int frameToHit = 0;
 
     private void Start()
     {
@@ -27,7 +31,15 @@ public class SpriteAnimator : MonoBehaviour
             currentFrame = (currentFrame + 1) % _frameArray.Length;
             _renderer.sprite = _frameArray[currentFrame];
 
-            if (currentFrame == 3 && clips.Length != 0)
+            if (SceneManager.GetActiveScene().name == "Main")
+            {
+                frameToHit = 3;
+            }
+            else
+            {
+                frameToHit = 5;
+            }
+            if (currentFrame == frameToHit && clips.Length != 0)
             {
                 audioSource.volume = 0.09f;
                 audioSource.PlayOneShot(clips[Random.Range(0, 3)]);
