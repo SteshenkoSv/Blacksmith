@@ -28,10 +28,18 @@ public class Spawner : MonoBehaviour
     private float respawnTimer;
     private float startTimer;
     private float patternTimer;
-    private int activePatternIndex = 0;
+    private int nextPatternIndex = 1;
+    private int currentPatternIndex = 0;
 
     private void Start()
     {
+        if (enemy)
+        {
+            ApplyPattern();
+            Debug.Log("Start in: " + patterns[currentPatternIndex].z);
+            Debug.Log("Next in: " + patterns[nextPatternIndex].z);
+        }
+
         if (automatic)
         {
             InvokeRepeating("Launch", spawnStartTime, spawnRate);
@@ -44,21 +52,17 @@ public class Spawner : MonoBehaviour
         {
             patternTimer += Time.deltaTime;
 
-            if (patternTimer >= patterns[activePatternIndex].z)
+            if ((patternTimer >= patterns[nextPatternIndex].z) && (nextPatternIndex > currentPatternIndex))
             {
-                ChangePattern();
+                currentPatternIndex = nextPatternIndex;
 
-                if (activePatternIndex < (patterns.Count - 1))
-                {
-                    activePatternIndex++;
-                }
-                else 
-                {
-                    activePatternIndex = 0;
-                    patternTimer = 0f;
-                }
+                ApplyPattern();
 
-                Debug.Log("Next pattern in: " + patterns[activePatternIndex].z);
+                if (currentPatternIndex < (patterns.Count - 1))
+                {
+                    nextPatternIndex++;
+                    Debug.Log("Next pattern in: " + patterns[nextPatternIndex].z);
+                }
             }
         }
 
@@ -71,7 +75,7 @@ public class Spawner : MonoBehaviour
         {
             startTimer += Time.deltaTime;
 
-            if (startTimer >= spawnStartTime && !spawned)
+            if (startTimer >= patterns[currentPatternIndex].z && !spawned)
             {
                 Invoke("Launch", 0f);
                 spawned = true;
@@ -81,24 +85,23 @@ public class Spawner : MonoBehaviour
             {
                 respawnTimer += Time.deltaTime;
 
-                if (respawnTimer >= spawnRate)
+                if (respawnTimer >= patterns[currentPatternIndex].x)
                 {
                     respawnTimer -= spawnRate;
                     Invoke("Launch", 0f);
                 }
             }
-
         }
     }
 
-    private void ChangePattern()
+    private void ApplyPattern()
     {
-        Vector3 pattern = patterns[activePatternIndex];
+        Vector3 pattern = patterns[currentPatternIndex];
 
         spawnRate = pattern.x;
         moveSpeed = pattern.y;
 
-        Debug.Log("current pattern: " + spawnRate + ", " + moveSpeed);
+        Debug.Log("current pattern: " + pattern.x + ", " + pattern.y);
     }
 
     private void ProcessInput()

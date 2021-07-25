@@ -665,7 +665,7 @@ PrefabInstance:
     - target: {fileID: 3231709427876697340, guid: 6d6495efe0e73f540b9cfa412db0c695,
         type: 3}
       propertyPath: patterns.Array.data[1].z
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3231709427876697341, guid: 6d6495efe0e73f540b9cfa412db0c695,
         type: 3}
