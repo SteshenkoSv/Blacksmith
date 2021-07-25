@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     private Vector2 _moveDirection;
     private bool _inputLocked = false;
 
+    private float distanceWalked = 0;
+
     private void Update()
     {
         ProcessInput();
@@ -35,5 +37,23 @@ public class Player : MonoBehaviour
     private void Move() 
     {
         _rb.velocity = new Vector2(_moveDirection.x * moveSpeed, _moveDirection.y * moveSpeed);
+
+        if (distanceWalked <= 5)
+        {
+            PlayAudio("Step");
+            distanceWalked = 0;
+        }
+        else
+        {
+            distanceWalked += Mathf.Abs(_rb.velocity.magnitude - distanceWalked);
+        }
+    }
+
+    private void PlayAudio(string sound)
+    {
+        if (sound == "Step")
+        {
+
+        }
     }
 }
