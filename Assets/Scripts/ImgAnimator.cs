@@ -36,7 +36,7 @@ public class ImgAnimator : MonoBehaviour
             }
             else
             {
-                frameToHit = 5;
+                frameToHit = 3;
             }
 
             if (currentFrame == frameToHit && clips.Length != 0)
