@@ -13,11 +13,11 @@ public class Spawner : MonoBehaviour
     public float destroyX = 1f;
     public float spawnStartTime = 1f;
     public float spawnRate = 1f;
-    public bool changePatternActive = false;
+
     public float minChangePatternTime = 5f;
     public float maxChangePatternTime = 10f;
-    //x - spawnRate, y - moveSpeed
-    public List<Vector2> patterns;
+    //x - spawnRate, y - moveSpeed, z - time from the last pattern
+    public List<Vector3> patterns;
 
     [SerializeField] private GameObject _projectile = null;
     [SerializeField] private Arsenal _arsenal = null;
@@ -28,16 +28,10 @@ public class Spawner : MonoBehaviour
     private float respawnTimer;
     private float startTimer;
     private float patternTimer;
-    private float changePatternTime;
+    private int activePatternIndex = 0;
 
     private void Start()
     {
-        if (enemy && changePatternActive && patterns.Count > 0) 
-        {
-            changePatternTime = Random.Range(minChangePatternTime, maxChangePatternTime);
-            Debug.Log("next pattern in: " + changePatternTime);
-        }
-
         if (automatic)
         {
             InvokeRepeating("Launch", spawnStartTime, spawnRate);
@@ -46,17 +40,25 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
-        if (enemy && changePatternActive && patterns.Count > 0)
+        if (enemy && patterns.Count > 0)
         {
             patternTimer += Time.deltaTime;
 
-            if (patternTimer >= changePatternTime)
+            if (patternTimer >= patterns[activePatternIndex].z)
             {
-                patternTimer -= changePatternTime;
-
-                changePatternTime = Random.Range(minChangePatternTime, maxChangePatternTime);
-                Debug.Log("next pattern in: "+changePatternTime);
                 ChangePattern();
+
+                if (activePatternIndex < (patterns.Count - 1))
+                {
+                    activePatternIndex++;
+                }
+                else 
+                {
+                    activePatternIndex = 0;
+                    patternTimer = 0f;
+                }
+
+                Debug.Log("Next pattern in: " + patterns[activePatternIndex].z);
             }
         }
 
@@ -91,20 +93,19 @@ public class Spawner : MonoBehaviour
 
     private void ChangePattern()
     {
-        int patternIndex = Random.Range(0, patterns.Count);
-
-        Vector2 pattern = patterns[patternIndex];
+        Vector3 pattern = patterns[activePatternIndex];
 
         spawnRate = pattern.x;
         moveSpeed = pattern.y;
 
-        Debug.Log("new pattern: " + spawnRate + ", " + moveSpeed);
+        Debug.Log("current pattern: " + spawnRate + ", " + moveSpeed);
     }
 
     private void ProcessInput()
     {
         if (Input.GetKeyDown(KeyCode.Space) && touchedByPlayer && !(enemy || automatic) && _arsenal.weaponCount > 0)
         {
+            _arsenal.UseWeapon(1);
             Launch();
         }
     }
@@ -134,11 +135,5 @@ public class Spawner : MonoBehaviour
         _projectileInstanceScript.rotateClockWise = rotateClockWise;
         _projectileInstanceScript.destroyX = destroyX;
         _projectileInstanceScript.enemy = enemy;
-
-        if (!enemy)
-        {
-            _arsenal.weaponCount -= 1;
-            _arsenal.UpdateArsenalValues();
-        }
     }
 }
