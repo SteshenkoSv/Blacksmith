@@ -65,7 +65,6 @@ public class Player : MonoBehaviour
         {
             audioSource.volume = 0.3f;
             audioSource.PlayOneShot(clips[Random.Range(0, 3)]);
-            Debug.Log("" + Random.Range(0, 3));
         }
     }
 }
