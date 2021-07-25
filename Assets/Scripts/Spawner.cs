@@ -40,8 +40,6 @@ public class Spawner : MonoBehaviour
         if (enemy)
         {
             ApplyPattern();
-            Debug.Log("Start in: " + patterns[currentPatternIndex].z);
-            Debug.Log("Next in: " + patterns[nextPatternIndex].z);
         }
 
         if (automatic)
@@ -67,7 +65,6 @@ public class Spawner : MonoBehaviour
                 if (currentPatternIndex < (patterns.Count - 1))
                 {
                     nextPatternIndex++;
-                    Debug.Log("Next pattern in: " + patterns[nextPatternIndex].z);
                 }
             }
         }
@@ -106,8 +103,6 @@ public class Spawner : MonoBehaviour
 
         spawnRate = pattern.x;
         moveSpeed = pattern.y;
-
-        Debug.Log("current pattern: " + pattern.x + ", " + pattern.y);
     }
 
     private void ProcessInput()

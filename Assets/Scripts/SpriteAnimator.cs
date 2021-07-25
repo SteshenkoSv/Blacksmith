@@ -26,7 +26,8 @@ public class SpriteAnimator : MonoBehaviour
             timer -= framerate;
             currentFrame = (currentFrame + 1) % _frameArray.Length;
             _renderer.sprite = _frameArray[currentFrame];
-            if (currentFrame == 3)
+
+            if (currentFrame == 3 && clips.Length != 0)
             {
                 audioSource.volume = 0.15f;
                 audioSource.PlayOneShot(clips[Random.Range(0, 3)]);
