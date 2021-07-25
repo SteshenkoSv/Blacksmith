@@ -177,5 +177,6 @@ MonoBehaviour:
   - {fileID: -5547194825390550217, guid: 0f421b5c48d5a0d48afa76d124598832, type: 3}
   - {fileID: 6891357095817125983, guid: 0f421b5c48d5a0d48afa76d124598832, type: 3}
   _renderer: {fileID: 638620833217229021}
-  framerate: 1
+  framerate: 0.25
   clips: []
+  frameToHit: 0

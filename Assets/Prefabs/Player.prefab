@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7339926672222941851}
   - component: {fileID: 7339926672222941849}
   - component: {fileID: 7339926672222941848}
-  - component: {fileID: 5978212784627699974}
   - component: {fileID: 8524575262667257494}
+  - component: {fileID: 4992500101445878825}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -122,32 +122,6 @@ MonoBehaviour:
   moveSpeed: 3
   _rb: {fileID: 7339926672222941849}
   clips: []
---- !u!61 &5978212784627699974
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7339926672222941860}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.03, y: 0.82}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1, y: 2.0234375}
-    newSize: {x: 0.64, y: 0.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.82, y: 1.61}
-  m_EdgeRadius: 0
 --- !u!114 &8524575262667257494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,3 +141,20 @@ MonoBehaviour:
   _renderer: {fileID: 7339926672222941851}
   framerate: 0.1
   clips: []
+  frameToHit: 0
+--- !u!70 &4992500101445878825
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7339926672222941860}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 135204a5f3fdbe946b2a681d46ed50b6, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.05, y: 0.83}
+  m_Size: {x: 0.33, y: 1.29}
+  m_Direction: 0
