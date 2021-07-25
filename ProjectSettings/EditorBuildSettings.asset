@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: a22f3c963fa406147a003179ef3a7114
   - enabled: 1
-    path: Assets/Scenes/Wolfs.unity
-    guid: f94b8df44a7b04643be9fd8fac7547ee
+    path: Assets/Scenes/Main.unity
+    guid: 44d9fc042c58c314485507346fe63efc
   - enabled: 1
     path: Assets/Scenes/WinScreen.unity
     guid: a68141000d82b7445858ee0ef5ff39f3
