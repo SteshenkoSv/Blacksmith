@@ -29,7 +29,7 @@ public class SpriteAnimator : MonoBehaviour
 
             if (currentFrame == 3 && clips.Length != 0)
             {
-                audioSource.volume = 0.15f;
+                audioSource.volume = 0.09f;
                 audioSource.PlayOneShot(clips[Random.Range(0, 3)]);
             }
         }
